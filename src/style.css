@@ -1,3 +1,9 @@
+body {
+    background-color: rgb(0, 228, 159);
+    color: white;
+}
+
 #output {
     font-size: 10rem;
 }
+      

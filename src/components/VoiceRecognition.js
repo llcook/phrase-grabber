@@ -24,16 +24,16 @@ class VoiceRecognition extends Component {
 
   // Create SpeechRecognition and assign it values
   createRecognition = (SpeechRecognition) => {
-    const recognition = new SpeechRecognition()
+    const recognition = new SpeechRecognition();
     return recognition
   }
 
   // Create transcript of spoken word
-  bindResult = (event) => {
+  bindResult = event => {
     let interimTranscript = ""
     let finalTranscript = ""
 
-    for (let i = event.resultIndex; i < event.results.length; ++i) {
+    for (let i = event.resultIndex; i < event.results.length; i++) {
       if (event.results[i].isFinal) {
         finalTranscript += event.results[i][0].transcript
       } else {
@@ -62,18 +62,6 @@ class VoiceRecognition extends Component {
   // Call this on page load
   componentDidMount() {
     console.log(this.props);
-
-    const events = [
-      { name: "start"},
-      { name: "end"},
-      { name: "error"}
-    ]
-
-    console.log(events);
-
-    events.forEach(event => {
-      this.recognition.addEventListener(event.name, event.action)
-    })
 
     this.recognition.addEventListener("result", this.bindResult)
 
