@@ -5,13 +5,14 @@ import "./style.css"
 class App extends Component {
   state = {
     start: false,
-    stop: false,
+    stop: false 
   }
 
-  onResult = ({ finalTranscript }) => {
+  onResult = ({ interimTranscript, finalTranscript }) => {
+    const interim = interimTranscript;
     const result = finalTranscript;
 
-    this.setState({ start: false, finalTranscript: result });
+    this.setState({ start: false, interimTranscript: interim, finalTranscript: result });
     console.log(result);
 
     // at this point, mic stops when speech stops
@@ -34,11 +35,12 @@ class App extends Component {
           />
         )}
 
-        {/* Shows speech string after recognition stops */}
-        <div id="output">{this.state.finalTranscript}</div>
-
         {/* MAKE THIS WORK !!!!!!!! */}
         <div id="interim">{this.state.interimTranscript}</div>
+        {/* Shows speech string after recognition stops */}
+        <div id="output"><p id="text">{this.state.finalTranscript}</p></div>
+
+
 
       </>
     )

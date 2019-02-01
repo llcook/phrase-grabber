@@ -3,7 +3,7 @@ body {
     color: white;
 }
 
-#output {
-    font-size: 10rem;
+#text {
+    font-size: 8rem;
+    margin: 0;
 }
-      
