@@ -1,27 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import VoiceRecognition from "./components/VoiceRecognition"
+import "./style.css"
 
 class App extends Component {
+  state = {
+    start: false,
+    stop: false,
+    interimTranscript: "",
+    finalTranscript: ""
+  }
+
+  onResult = ({ finalTranscript }) => {
+    const result = finalTranscript
+
+    this.setState({ start: false, finalTranscript: result });
+    console.log(result);
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <>
+        {/* Set start to true */}
+        <button onClick={() => this.setState({ start: true })}>start</button>
+
+        {this.state.start && (
+          <VoiceRecognition
+            onResult={this.onResult}
+            continuous={true}
+            lang="en-US"
+          />
+        )}
+
+        <div id="output">{this.state.finalTranscript}</div>
+      </>
+    )
   }
 }
 
