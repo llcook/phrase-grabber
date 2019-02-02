@@ -5,6 +5,12 @@ class VoiceRecognition extends Component {
     // Calls the parent instructor and passes in properties:
     super(props)
 
+    // MOVE STATE FROM APP TO HERE??????????????
+    // state = {
+    //   start: false,
+    //   stop: false
+    // }
+
     // Verify whether user's browser supports Web Speech API
     const SpeechRecognition = window.SpeechRecognition
       || window.webkitSpeechRecognition

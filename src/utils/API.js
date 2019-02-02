@@ -2,15 +2,15 @@ import axios from "axios";
 
 export default {
     // Gets all notes
-    getNotes: function() {
+    getNotes: () => {
         return axios.get("/api/notes");
     },
     // Gets the note with the given ID
-    getNote: function(id) {
-        return axios.get("/api/notes/" +id);
+    getNote: id => {
+        return axios.get("/api/notes/" + id);
     },
     // Saves a note to the database
-    saveNote: function(noteData) {
+    saveNote: noteData => {
         return axios.post("api/notes", noteData);
     }
 };
