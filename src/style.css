@@ -1,6 +1,5 @@
 body {
-    background-color: rgb(0, 228, 159);
-    color: white;
+    color: black;
 }
 
 #NotesList {
@@ -9,8 +8,17 @@ body {
     list-style-type: none;
 }
 
+#NotesList > li > a {
+    text-decoration: none;
+}
+
 #NewText {
     background-color: white;
     color: black;
     padding: 1.5rem;
+    font-size: 4.5rem;
+}
+
+li:first-child {
+    font-size: 4.5rem;
 }

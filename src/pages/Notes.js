@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import VoiceRecognition from "../components/VoiceRecognition";
-import TextInput from "../components/TextInput";
 import { NotesList, NotesListItem } from "../components/NotesList";
 
 class Notes extends Component {
@@ -58,11 +57,6 @@ class Notes extends Component {
                         lang="en-US"
                     />
                 )}
-                <div id="VoiceNote">
-                    <TextInput>
-                        {this.state.note}
-                    </TextInput>
-                </div>
 
                 {this.state.notes.length ? (
                     <NotesList>
