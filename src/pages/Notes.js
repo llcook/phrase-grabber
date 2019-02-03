@@ -8,6 +8,7 @@ class Notes extends Component {
     state = {
         notes: [],
         note: "",
+        date: "",
         start: false
     }
 
@@ -37,7 +38,8 @@ class Notes extends Component {
 
     onResult = (finalTranscript) => {
         const result = finalTranscript;
-        this.setState({ start: false, note: result });
+        let date = new Date(Date.now());
+        this.setState({ start: false, note: result, date: date });
         console.log(result);
         this.storeNote();
     }
