@@ -18,11 +18,14 @@ class Notes extends Component {
     // Triggers only once when component *initially* mounts
     // Good spot for AJAX calls
     componentDidMount() {
+       this.loadNotes();
+    }
+
+    loadNotes = () => {
         API.getNotes()
-            .then(res => {
-                console.log(res)
-            })         
-            .catch(err => console.log(err))
+            // .then(res => this.setState({ notes: res.data }))
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err));
     }
 
     onResult = ({ interimTranscript, finalTranscript }) => {
