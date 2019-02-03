@@ -8,7 +8,8 @@ class Notes extends Component {
         notes: [],
         note: "",
         date: "",
-        start: false
+        start: false,
+        stop: false
     }
 
     componentDidMount() {
@@ -46,6 +47,8 @@ class Notes extends Component {
         return (
             <>
                 <button id="startButton" onClick={() => this.setState({ start: true })}>START</button>
+
+                <button id="startButton" onClick={() => this.setState({ stop: true })}>STOP</button>
 
                 {this.state.start && (
                     <VoiceRecognition

@@ -25,25 +25,36 @@ class VoiceRecognition extends Component {
   // Create SpeechRecognition and assign it values
   createRecognition = (SpeechRecognition) => {
     const recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = "en-US";
     return recognition
   }
 
   // Create transcript of spoken word
   bindResult = event => {
     let finalTranscript = "";
+    let interimTranscripts = "";
 
     for (let i = event.resultIndex; i < event.results.length; i++) {
+      var transcript = event.results[i][0].transcript;
+      // transcript.replace("\n", "<br>");
+
       if (event.results[i].isFinal) {
-        finalTranscript += event.results[i][0].transcript;
+        finalTranscript += transcript;
+      }
+      else {
+        interimTranscripts += transcript;
       }
     }
 
-    this.props.onResult(finalTranscript)
+    this.props.onResult(interimTranscripts, finalTranscript)
   }
 
   // Starts speech recognition functionality
   start = () => {
-    this.recognition.start()
+    this.recognition.start();
+    console.log("LISTENING... See red indicator in tab.");
   }
 
   // Stops speech recognition functionality
@@ -58,10 +69,7 @@ class VoiceRecognition extends Component {
 
   // Call this on load
   componentDidMount() {
-    console.log(this.props);
-
     this.recognition.addEventListener("result", this.bindResult)
-
     this.start()
   }
 
