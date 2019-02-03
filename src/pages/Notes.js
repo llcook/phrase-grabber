@@ -4,10 +4,6 @@ import VoiceRecognition from "../components/VoiceRecognition";
 import TextInput from "../components/TextInput";
 import { NotesList, NotesListItem } from "../components/NotesList";
 
-// Notes page will re-render every time state is updated with a new note
-// Will VoiceRecognition instance re-render, too? how to avoid this from happening?
-// POTENTIAL SOLUTION: PUTTING START BUTTON IN ITS OWN COMPONENT?
-
 class Notes extends Component {
     state = {
         notes: [],
@@ -44,14 +40,7 @@ class Notes extends Component {
         this.setState({ start: false, note: result });
         console.log(result);
         this.storeNote();
-        // MIC STOPS WHEN SPEECH STOPS AND RESULT IS RETURNED
-
-        // if set start: true after console.log, it continues until there's about 10 seconds silence
-        // but then the start button doesn't work anymore -- the click event sets start to true
-        // and on timeout after click, start button is no longer working
     }
-
-    // CREATE SYNTHETIC EVENT HANDLER TO STORE TEXT?
 
     render() {
         return (
@@ -69,13 +58,6 @@ class Notes extends Component {
                 )}
                 <div id="VoiceNote">
                     <TextInput>
-                        {/* name="note"
-                        value={this.state.note}
-                        onChange={this.handleInputChange}> */}
-
-                        {/* SHOULD NOT BE FORM
-                        SEE: SYNTHETIC EVENT HANDLERS
-                        TO STORE CHANGE TO THE ELEMENT */}
                         {this.state.note}
                     </TextInput>
                 </div>

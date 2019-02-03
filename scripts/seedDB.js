@@ -6,9 +6,6 @@ mongoose.connect(
     "mongodb://localhost/webspeech"
 );
 
-// reference: 10.5 MERN 1:05:00ish
-// reference: 11 reactrouter seedDB
-
 const noteSeed = [
     {
         note: "note example 01",
