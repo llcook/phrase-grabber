@@ -38,7 +38,7 @@ class VoiceRecognition extends Component {
 
     for (let i = event.resultIndex; i < event.results.length; i++) {
       var transcript = event.results[i][0].transcript;
-      // transcript.replace("\n", "<br>");
+      transcript.replace("\n", "<br>");
 
       if (event.results[i].isFinal) {
         finalTranscript += transcript;
@@ -48,7 +48,10 @@ class VoiceRecognition extends Component {
       }
     }
 
-    this.props.onResult(interimTranscripts, finalTranscript)
+    // IF INTERIMTRANSCRIPTS IS REMOVED FROM ARGUMENTS,
+    // APP REVERTS TO PRINTING ONLY FINALTRANSCRIPT
+    // BUT THE RECORDING CONTINUES
+    this.props.onResult(finalTranscript)
   }
 
   // Starts speech recognition functionality

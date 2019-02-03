@@ -48,6 +48,7 @@ class Notes extends Component {
             <>
                 <button id="startButton" onClick={() => this.setState({ start: true })}>START</button>
 
+                {/* STOP BUTTON NOT FUNCTIONAL */}
                 <button id="startButton" onClick={() => this.setState({ stop: true })}>STOP</button>
 
                 {this.state.start && (
