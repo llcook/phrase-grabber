@@ -1,5 +1,7 @@
 body {
-    color: black;
+    background-color: black;
+    color: white;
+    font-family: "Lucida Console", Monaco, monospace;
 }
 
 #NotesList {
@@ -9,14 +11,8 @@ body {
 }
 
 #NotesList > li > a {
+    color: white;
     text-decoration: none;
-}
-
-#NewText {
-    background-color: white;
-    color: black;
-    padding: 1.5rem;
-    font-size: 4.5rem;
 }
 
 li:first-child {

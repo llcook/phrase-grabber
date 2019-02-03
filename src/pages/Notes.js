@@ -25,7 +25,6 @@ class Notes extends Component {
     }
 
     storeNote = () => {
-
         if (this.state.note) {
             API.saveNote({
                 note: this.state.note
@@ -46,7 +45,6 @@ class Notes extends Component {
     render() {
         return (
             <>
-                {/* Set start to true */}
                 <button id="startButton" onClick={() => this.setState({ start: true })}>START</button>
 
                 {this.state.start && (
