@@ -3,13 +3,14 @@ body {
     color: white;
 }
 
-#text {
-    font-size: 8rem;
-    margin: 0;
-}
-
 #NotesList {
     border: 1px;
     border-color: black;
     list-style-type: none;
+}
+
+#NewText {
+    background-color: white;
+    color: black;
+    padding: 1.5rem;
 }

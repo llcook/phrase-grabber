@@ -4,56 +4,45 @@ import VoiceRecognition from "../components/VoiceRecognition";
 import TextInput from "../components/TextInput";
 import { NotesList, NotesListItem } from "../components/NotesList";
 
-// Notes will re-render every time state is updated with a new note
+// Notes page will re-render every time state is updated with a new note
 // Will VoiceRecognition instance re-render, too? how to avoid this from happening?
+// POTENTIAL SOLUTION: PUTTING START BUTTON IN ITS OWN COMPONENT?
 
 class Notes extends Component {
     state = {
         notes: [],
         note: "",
         date: "",
-        start: false,
-        stop: false
+        start: false
     }
 
-    // Triggers only once when component *initially* mounts
-    // Good spot for AJAX calls
-    componentDidMount() {
+    componentDidMount() { 
        this.loadNotes();
     }
 
     loadNotes = () => {
         API.getNotes()
-            // .then(res => this.setState({ notes: res.data }))
             .then(res => {
-                console.log(res.data);
+                console.log(res.data); 
                 this.setState({ notes: res.data });
             })
             .catch(err => console.log(err));
     }
 
-    onResult = ({ interimTranscript, finalTranscript }) => {
-        const interim = interimTranscript;
+    onResult = (finalTranscript) => {
         const result = finalTranscript;
 
-        this.setState({ start: false, interimTranscript: interim, finalTranscript: result });
+        this.setState({ start: false, note: result });
         console.log(result);
 
-        // at this point, mic stops when speech stops
+        // MIC STOPS WHEN SPEECH STOPS AND RESULT IS RETURNED
+
         // if set start: true after console.log, it continues until there's about 10 seconds silence
         // but then the start button doesn't work anymore -- the click event sets start to true
+        // and on timeout after click, start button is no longer working
     }
 
-    // handle when note text is placed in input
-    // this will grab the name, value attribute off of the element that was changed
-    // this will be the input
-    // handleInputChange = event => {
-    //     // stores the name, value identified in <input>
-    //     const { name, value } = event.target; // 10.5-1:54:04
-    //     this.setState({
-    //         [name]: value
-    //     })
-    // }
+    // CREATE SYNTHETIC EVENT HANDLER TO STORE TEXT?
 
     render() {
         return (
@@ -63,18 +52,22 @@ class Notes extends Component {
 
                 {this.state.start && (
                     <VoiceRecognition
-                        onResult={this.onResult}
+                        onResult={this.onResult} 
                         continuous={true}
                         interimResults={true}
                         lang="en-US"
                     />
                 )}
                 <div id="VoiceNote">
-                    <TextInput
-                        name="note"
+                    <TextInput>
+                        {/* name="note"
                         value={this.state.note}
-                        onChange={this.handleInputChange}>
-                        {this.state.finalTranscript}
+                        onChange={this.handleInputChange}> */}
+                        
+                        {/* SHOULD NOT BE FORM
+                        SEE: SYNTHETIC EVENT HANDLERS
+                        TO STORE CHANGE TO THE ELEMENT */}
+                        {this.state.note}
                     </TextInput>
                 </div>
 

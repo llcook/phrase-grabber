@@ -5,12 +5,6 @@ class VoiceRecognition extends Component {
     // Calls the parent instructor and passes in properties:
     super(props)
 
-    // MOVE STATE FROM APP TO HERE??????????????
-    // state = {
-    //   start: false,
-    //   stop: false
-    // }
-
     // Verify whether user's browser supports Web Speech API
     const SpeechRecognition = window.SpeechRecognition
       || window.webkitSpeechRecognition
@@ -36,18 +30,15 @@ class VoiceRecognition extends Component {
 
   // Create transcript of spoken word
   bindResult = event => {
-    let interimTranscript = ""
     let finalTranscript = ""
 
     for (let i = event.resultIndex; i < event.results.length; ++i) {
       if (event.results[i].isFinal) {
         finalTranscript += event.results[i][0].transcript
-      } else {
-        interimTranscript += event.results[i][0].transcript
       }
     }
 
-    this.props.onResult({ interimTranscript, finalTranscript })
+    this.props.onResult(finalTranscript)
   }
 
   // Starts speech recognition functionality
@@ -65,17 +56,13 @@ class VoiceRecognition extends Component {
     this.recognition.abort()
   }
 
-  // Call this on page load
+  // Call this on load
   componentDidMount() {
     console.log(this.props);
 
     this.recognition.addEventListener("result", this.bindResult)
 
     this.start()
-  }
-
-  componentWillUnmount() {
-    this.abort()
   }
 
   render() {
