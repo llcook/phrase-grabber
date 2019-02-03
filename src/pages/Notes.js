@@ -12,29 +12,38 @@ class Notes extends Component {
     state = {
         notes: [],
         note: "",
-        date: "",
         start: false
     }
 
-    componentDidMount() { 
-       this.loadNotes();
+    componentDidMount() {
+        this.loadNotes();
     }
 
     loadNotes = () => {
         API.getNotes()
             .then(res => {
-                console.log(res.data); 
+                console.log(res.data);
                 this.setState({ notes: res.data });
             })
             .catch(err => console.log(err));
     }
 
+    storeNote = () => {
+
+        if (this.state.note) {
+            API.saveNote({
+                note: this.state.note
+            })
+                .then(res => this.loadNotes())
+                .catch(err => console.log(err));
+        }
+    }
+
     onResult = (finalTranscript) => {
         const result = finalTranscript;
-
         this.setState({ start: false, note: result });
         console.log(result);
-
+        this.storeNote();
         // MIC STOPS WHEN SPEECH STOPS AND RESULT IS RETURNED
 
         // if set start: true after console.log, it continues until there's about 10 seconds silence
@@ -52,7 +61,7 @@ class Notes extends Component {
 
                 {this.state.start && (
                     <VoiceRecognition
-                        onResult={this.onResult} 
+                        onResult={this.onResult}
                         continuous={true}
                         interimResults={true}
                         lang="en-US"
@@ -63,7 +72,7 @@ class Notes extends Component {
                         {/* name="note"
                         value={this.state.note}
                         onChange={this.handleInputChange}> */}
-                        
+
                         {/* SHOULD NOT BE FORM
                         SEE: SYNTHETIC EVENT HANDLERS
                         TO STORE CHANGE TO THE ELEMENT */}
@@ -71,21 +80,21 @@ class Notes extends Component {
                     </TextInput>
                 </div>
 
-                    {this.state.notes.length ? (
-                        <NotesList>
-                            {this.state.notes.map(note => {
-                                return (
-                                    <NotesListItem key={note._id}>
-                                        <a href={"/notes/" + note._id}>
-                                            <strong>
-                                                {note.note}
-                                            </strong>
-                                        </a>
-                                    </NotesListItem>
-                                );
-                            })}
-                        </NotesList>
-                    ) : (
+                {this.state.notes.length ? (
+                    <NotesList>
+                        {this.state.notes.map(note => {
+                            return (
+                                <NotesListItem key={note._id}>
+                                    <a href={"notes/" + note._id}>
+                                        <strong>
+                                            {note.note}
+                                        </strong>
+                                    </a>
+                                </NotesListItem>
+                            );
+                        })}
+                    </NotesList>
+                ) : (
                         <h2>No results to display</h2>
                     )}
 

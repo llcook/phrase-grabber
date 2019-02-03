@@ -30,11 +30,11 @@ class VoiceRecognition extends Component {
 
   // Create transcript of spoken word
   bindResult = event => {
-    let finalTranscript = ""
+    let finalTranscript = "";
 
-    for (let i = event.resultIndex; i < event.results.length; ++i) {
+    for (let i = event.resultIndex; i < event.results.length; i++) {
       if (event.results[i].isFinal) {
-        finalTranscript += event.results[i][0].transcript
+        finalTranscript += event.results[i][0].transcript;
       }
     }
 
