@@ -4,7 +4,8 @@ import VoiceRecognition from "../components/VoiceRecognition";
 import TextInput from "../components/TextInput";
 import { NotesList, NotesListItem } from "../components/NotesList";
 
-// Notes will re-render every time state is updated with a new note - will VoiceRecognition instance re-render, too? how to avoid this from happening?
+// Notes will re-render every time state is updated with a new note
+// Will VoiceRecognition instance re-render, too? how to avoid this from happening?
 
 class Notes extends Component {
     state = {
@@ -24,7 +25,10 @@ class Notes extends Component {
     loadNotes = () => {
         API.getNotes()
             // .then(res => this.setState({ notes: res.data }))
-            .then(res => console.log(res.data))
+            .then(res => {
+                console.log(res.data);
+                this.setState({ notes: res.data });
+            })
             .catch(err => console.log(err));
     }
 
@@ -55,7 +59,7 @@ class Notes extends Component {
         return (
             <>
                 {/* Set start to true */}
-                <button id="startButton" onClick={() => this.setState({ start: true })}>start</button>
+                <button id="startButton" onClick={() => this.setState({ start: true })}>START</button>
 
                 {this.state.start && (
                     <VoiceRecognition
@@ -73,17 +77,8 @@ class Notes extends Component {
                         {this.state.finalTranscript}
                     </TextInput>
                 </div>
-                <div id="NotesList">
-                    <NotesList>
-                        <NotesListItem />
-                        <NotesListItem />
-                        <NotesListItem />
-                        <NotesListItem />
-                        <NotesListItem />
-                        <NotesListItem />
-                    </NotesList>
 
-                    {/* {this.state.notes.length ? (
+                    {this.state.notes.length ? (
                         <NotesList>
                             {this.state.notes.map(note => {
                                 return (
@@ -96,8 +91,11 @@ class Notes extends Component {
                                     </NotesListItem>
                                 );
                             })}
-                        </NotesList> */}
-                </div>
+                        </NotesList>
+                    ) : (
+                        <h2>No results to display</h2>
+                    )}
+
             </>
         )
     }

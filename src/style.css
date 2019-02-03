@@ -7,3 +7,9 @@ body {
     font-size: 8rem;
     margin: 0;
 }
+
+#NotesList {
+    border: 1px;
+    border-color: black;
+    list-style-type: none;
+}
