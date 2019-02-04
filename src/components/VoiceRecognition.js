@@ -25,26 +25,16 @@ class VoiceRecognition extends Component {
   // Create SpeechRecognition and assign it values
   createRecognition = (SpeechRecognition) => {
     const recognition = new SpeechRecognition();
-    recognition.continuous = true;
-    recognition.interimResults = true;
-    recognition.lang = "en-US";
     return recognition
   }
 
   // Create transcript of spoken word
   bindResult = event => {
     let finalTranscript = "";
-    let interimTranscripts = "";
 
     for (let i = event.resultIndex; i < event.results.length; i++) {
-      var transcript = event.results[i][0].transcript;
-      transcript.replace("\n", "<br>");
-
       if (event.results[i].isFinal) {
-        finalTranscript += transcript;
-      }
-      else {
-        interimTranscripts += transcript;
+        finalTranscript += event.results[i][0].transcript;
       }
     }
 
