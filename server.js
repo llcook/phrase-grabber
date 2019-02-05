@@ -10,12 +10,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
+  app.use(express.static("client/build"));
 }
 // Add routes, both API and view
 app.use(routes);
 
-mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/webspeech");
 

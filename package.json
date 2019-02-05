@@ -1,36 +1,28 @@
 {
-  "name": "webspeech",
-  "version": "0.1.0",
+  "name": "webspeech-refactor",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "llc",
+  "license": "MIT",
   "private": true,
-  "proxy": "http://localhost:3001/",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && yarn run start:prod || yarn run start:dev",
+    "start:prod": "nodemon server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"yarn run client\"",
+    "client": "cd client && yarn run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && yarn add",
+    "build": "cd client && yarn run build",
+    "heroku-postbuild": "yarn run build"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.7"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "express": "^4.16.4",
-    "mongoose": "^5.4.9",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "seed": "node scripts/seedDB.js",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-  "description": "Speech-to-text phrase collector",
-  "main": "server.js",
-  "repository": "https://github.com/llcook/web-speech.git",
-  "author": "watercolorhorse <29869241+llcook@users.noreply.github.com>",
-  "license": "MIT"
+    "if-env": "^1.0.4",
+    "mongoose": "^5.4.9"
+  }
 }
