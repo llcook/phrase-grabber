@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import VoiceRecognition from "../components/VoiceRecognition";
-import NewNote from "../components/NewNote";
+import { Container, Row, Col, Button, Jumbotron } from "reactstrap";
 
 class Notes extends Component {
     state = {
@@ -45,7 +45,17 @@ class Notes extends Component {
     render() {
         return (
             <>
-                <div id="start-button" onClick={() => this.setState({ start: true })}>Click to translate a spoken phrase to text</div>
+
+                <Jumbotron id="intro">
+                    <h1 className="display-3">Listen up!</h1>
+                    <p className="lead">This simple speech-to-text app captures human speech, translates it to text and stores it in a database.</p>
+                    <hr className="my-2" />
+                    <p>Click to start translation. The machine will stop translating when you stop talking.</p>
+                    <p className="lead">
+                        <Button id="start-button" color="danger" onClick={() => this.setState({ start: true })}>Try me!</Button>
+                    </p>
+                </Jumbotron>
+
 
                 {this.state.start && (
                     <VoiceRecognition
@@ -53,9 +63,16 @@ class Notes extends Component {
                     />
                 )}
 
-                <NewNote key={this.state.note._id}>
-                    {this.state.note}
-                </NewNote>
+                <Container id="new-note">
+                    <Row>
+                        <Col>
+                            <h1 className="display-3" key={this.state.note._id}>
+                                {this.state.note}
+                            </h1>
+                        </Col>
+                    </Row>
+                </Container>
+
             </>
         )
     }

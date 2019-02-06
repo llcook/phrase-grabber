@@ -1,15 +1,14 @@
 import React from "react";
-
-// NOT ROUTED YET
+import { Link } from "react-router-dom";
 
 function About() {
     return (
         <>
-            <h3>Header</h3>
-            <p>Marshmallow cotton candy biscuit pie. Jelly danish marzipan. Sweet roll marzipan cupcake cake lollipop. I love I love liquorice cotton candy. I love gummies oat cake pastry I love sugar plum candy candy I love. Liquorice candy pie cookie candy canes I love cake fruitcake. </p>
+            <h3>Technology</h3>
+            <p>This app is powered by the <Link to={"https://w3c.github.io/speech-api/"}>Web Speech API.</Link></p>
 
-            <h3>Another header</h3>
-            <p>Marshmallow cotton candy biscuit pie. Jelly danish marzipan. Sweet roll marzipan cupcake cake lollipop. I love I love liquorice cotton candy. I love gummies oat cake pastry I love sugar plum candy candy I love. Liquorice candy pie cookie candy canes I love cake fruitcake. </p>
+            <p>&copy; 2019 <Link to={"https://llcook.us"}>LLC</Link></p>
+
         </>
     )
 }

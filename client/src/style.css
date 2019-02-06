@@ -15,6 +15,7 @@ body {
     display: flex;
     font-size: 18px;
     margin: 0;
+    padding-top: 4rem;
 }
 
 li {
@@ -26,42 +27,36 @@ a {
     text-decoration: none;
 }
 
-#start-button {
-    background: none;
-    border: 0px;
-    color: red;
-    z-index: 5;
+#intro {
+    background-color: white;
 }
 
-.navbar-nav>li {
-    display: inline;
-    margin-left: 0.5rem;
-    margin-right: 1rem;
-    padding: 0;
+#navbar {
+    z-index: 3;
 }
 
-.navbar-nav>li:first-child {
-    margin-left: 3rem;
-}
-
-#notes-list,
-#single-note,
-#new-note,
-#not-found,
-#start-button {
-    margin-top: 5rem;
-    padding: 2rem;
-    z-index: 1;
-}
-
-#new-note {
-    font-size: 4rem;
-    position: absolute;
-    top: 20%;
-    transform: translateY(-60%);
+#about {
+    background-color: white;
+    border-radius: 25px;
+    margin: 2rem 4rem;
+    padding: 1rem 3rem;
+    z-index: 2;
 }
 
 #date {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
+
+#all-notes {
+    animation: scrollUp 30s 0.16s infinite forwards;
+}
+
+@keyframes scrollUp {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-83.33333%);
+    }
+  }
