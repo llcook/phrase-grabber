@@ -1,97 +1,72 @@
 html {
     height: 100vh;
+    margin: 0;
+}
+
+#root {
+    width: 100%;
 }
 
 body {
-    background-color:black;
-    color: white;
-    font-family: "Lucida Console", Monaco, monospace;
-
-    height: 100%;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    height: 100vh;
     display: flex;
     font-size: 18px;
-    letter-spacing: .02em;
-    text-transform: uppercase;
+    margin: 0;
 }
 
-#StartButton {
+li {
+    list-style-type: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#start-button {
     background: none;
     border: 0px;
     color: red;
-    display: inline;
-    font-size: 24px;
+    padding-top: 7px;
     position: absolute;
     z-index: 5;
 }
 
-#navbar {
-    padding: 0;
-    z-index: 3;
-}
-
-#navbar > li {
+.navbar-nav>li {
     display: inline;
-    list-style-type: none;
-    margin-right: 15px;
-    z-index: 4;
-}
-
-#navbar > li > a {
-    color: lime;
-    text-decoration: none;
-    /* text-shadow: 1px 1px #dfd5d5; */
-}
-
-#NotesList {
-    list-style-type: none;
-    margin-top: 60px;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
     padding: 0;
+}
+
+.navbar-nav>li:first-child {
+    margin-left: 3rem;
+}
+
+#notes-list,
+#single-note,
+#new-note {
+    margin-top: 3rem;
+    padding: 2rem;
     z-index: 1;
 }
 
-#NotesList > li > a {
-    color: white;
-    text-decoration: none;
+#new-note {
+    font-size: 4rem;
+    position: absolute;
+    top: 20%;
+    transform: translateY(-60%);
 }
 
-#NotesList > li:first-child {
-    font-size: 4.5rem;
+#date {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
 }
 
-/* .box {  
-    height: 40px;
-    margin: auto;
-    overflow: hidden;
-    position: relative;
+#start-button {
+    margin-left: 2rem;
+    margin-top: 4rem;
 }
-
-.box::before {  
-    top: 0;  
-    left: 0;  
-    z-index: 1;
-    width: 100%;  
-    content: '';  
-    height: 10px;  
-    position: absolute;  
-    background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-} */
-
-/* .box::after {  
-    left: 0;  
-    bottom: 0;  
-    z-index: 1; 
-    width: 100%;  
-    content: '';  
-    height: 10px;  
-    position: absolute;  
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-}
-    
-#NotesList {  
-    margin: 0;  padding: 0;  animation: scrollUp 6.5s 0.44s infinite forwards;}
-    
-#NotesListItem {  opacity: 1;  height: 20px;  padding: 10px;  list-style: none;} */
-
-/* @keyframes fadeOut {  from {    opacity: 1;  }  to {    opacity: 0;  }}
-
-@keyframes scrollUp {  from {    transform: translateY(0);  }  to {    transform: translateY(-83.33333%);  }} */

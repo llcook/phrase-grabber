@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import API from "../utils/API";
+import Date from "../components/Date";
 
 class Detail extends Component {
     state = {
@@ -16,9 +16,10 @@ class Detail extends Component {
     render() {
         return (
             <>
-                <h2>{this.state.note.date}</h2>
-                    <p>{this.state.note.note}</p>
-                <p><Link to="/">← Back to Notes</Link></p>
+            <div id="single-note" className="container-fluid">
+                <p id="note-detail">{this.state.note.note}</p>
+                <Date>{this.state.note.date}</Date>
+            </div>
             </>
         );
     }

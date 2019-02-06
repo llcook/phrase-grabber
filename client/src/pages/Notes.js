@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import VoiceRecognition from "../components/VoiceRecognition";
-import { NotesList, NotesListItem } from "../components/NotesList";
+import NewNote from "../components/NewNote";
 
 class Notes extends Component {
     state = {
@@ -46,7 +45,7 @@ class Notes extends Component {
     render() {
         return (
             <>
-                <button id="StartButton" onClick={() => this.setState({ start: true })}>&#11044;</button>
+                <button id="start-button" onClick={() => this.setState({ start: true })}>&#11044;</button>
 
                 {this.state.start && (
                     <VoiceRecognition
@@ -54,18 +53,9 @@ class Notes extends Component {
                     />
                 )}
 
-                <NotesList>
-                    {this.state.notes.map(note => (
-                        <NotesListItem key={note._id}>
-                            <Link to={"/notes/" + note._id}>
-                                <strong>
-                                    {note.note}
-                                </strong>
-                            </Link>
-                        </NotesListItem>
-                    ))}
-                </NotesList>
-
+                <NewNote key={this.state.note._id}>
+                    {this.state.note}
+                </NewNote>
             </>
         )
     }

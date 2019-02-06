@@ -3,7 +3,7 @@ import React from "react";
 export const NotesList = props => {
   return (
     <>
-      <ul id="NotesList">
+      <ul id="notes-list">
         {props.children}
       </ul>
     </>
@@ -11,5 +11,5 @@ export const NotesList = props => {
 }
 
 export const NotesListItem = props => {
-  return <li id="textItem">{props.children}</li>;
+  return <li>{props.children}</li>;
 }
