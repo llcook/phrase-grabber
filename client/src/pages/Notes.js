@@ -45,7 +45,7 @@ class Notes extends Component {
     render() {
         return (
             <>
-                <button id="start-button" onClick={() => this.setState({ start: true })}>&#11044;</button>
+                <div id="start-button" onClick={() => this.setState({ start: true })}>Click to translate a spoken phrase to text</div>
 
                 {this.state.start && (
                     <VoiceRecognition

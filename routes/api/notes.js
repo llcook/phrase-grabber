@@ -9,6 +9,6 @@ router.route("/")
 // Matches with "/api/notes/:id"
 router
     .route("/:id")
-    .get(notesController.findById)
+    .get(notesController.findById);
 
 module.exports = router;

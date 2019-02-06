@@ -5,7 +5,6 @@ import Notes from "./pages/Notes";
 import All from "./pages/All";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
-import About from "./pages/About";
 import "./style.css"
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
           <Route exact path="/notes" component={All} />
           <Route exact path="/notes/:id" component={Detail} />
           <Route component={NoMatch} />
-          <Route exact path="/about" component={About} />
         </Switch>
       </>
     </Router>

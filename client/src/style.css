@@ -30,8 +30,6 @@ a {
     background: none;
     border: 0px;
     color: red;
-    padding-top: 7px;
-    position: absolute;
     z-index: 5;
 }
 
@@ -48,8 +46,10 @@ a {
 
 #notes-list,
 #single-note,
-#new-note {
-    margin-top: 3rem;
+#new-note,
+#not-found,
+#start-button {
+    margin-top: 5rem;
     padding: 2rem;
     z-index: 1;
 }
@@ -64,9 +64,4 @@ a {
 #date {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
-}
-
-#start-button {
-    margin-left: 2rem;
-    margin-top: 4rem;
 }
