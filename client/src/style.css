@@ -1,13 +1,52 @@
+html {
+    height: 100vh;
+}
+
 body {
-    background-color: black;
+    background-color:black;
     color: white;
     font-family: "Lucida Console", Monaco, monospace;
+
+    height: 100%;
+    display: flex;
+    font-size: 18px;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+}
+
+#StartButton {
+    background: none;
+    border: 0px;
+    color: red;
+    display: inline;
+    font-size: 24px;
+    position: absolute;
+    z-index: 5;
+}
+
+#navbar {
+    padding: 0;
+    z-index: 3;
+}
+
+#navbar > li {
+    display: inline;
+    list-style-type: none;
+    margin-right: 15px;
+    z-index: 4;
+}
+
+#navbar > li > a {
+    color: lime;
+    text-decoration: none;
+    /* text-shadow: 1px 1px #dfd5d5; */
 }
 
 #NotesList {
-    border: 1px;
-    border-color: black;
     list-style-type: none;
+    margin-top: 60px;
+    padding: 0;
+    z-index: 1;
 }
 
 #NotesList > li > a {
@@ -15,6 +54,44 @@ body {
     text-decoration: none;
 }
 
-li:first-child {
+#NotesList > li:first-child {
     font-size: 4.5rem;
 }
+
+/* .box {  
+    height: 40px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.box::before {  
+    top: 0;  
+    left: 0;  
+    z-index: 1;
+    width: 100%;  
+    content: '';  
+    height: 10px;  
+    position: absolute;  
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+} */
+
+/* .box::after {  
+    left: 0;  
+    bottom: 0;  
+    z-index: 1; 
+    width: 100%;  
+    content: '';  
+    height: 10px;  
+    position: absolute;  
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+    
+#NotesList {  
+    margin: 0;  padding: 0;  animation: scrollUp 6.5s 0.44s infinite forwards;}
+    
+#NotesListItem {  opacity: 1;  height: 20px;  padding: 10px;  list-style: none;} */
+
+/* @keyframes fadeOut {  from {    opacity: 1;  }  to {    opacity: 0;  }}
+
+@keyframes scrollUp {  from {    transform: translateY(0);  }  to {    transform: translateY(-83.33333%);  }} */

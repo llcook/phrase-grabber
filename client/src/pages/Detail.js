@@ -16,12 +16,9 @@ class Detail extends Component {
     render() {
         return (
             <>
-                <h2>
-                    {this.state.note.note} on {this.state.note.date}
-                </h2>
-                <p>
-                    <Link to="/">← Back to Notes</Link>
-                </p>
+                <h2>{this.state.note.date}</h2>
+                    <p>{this.state.note.note}</p>
+                <p><Link to="/">← Back to Notes</Link></p>
             </>
         );
     }

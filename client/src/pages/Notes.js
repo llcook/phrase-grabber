@@ -46,7 +46,7 @@ class Notes extends Component {
     render() {
         return (
             <>
-                <button id="startButton" onClick={() => this.setState({ start: true })}>START</button>
+                <button id="StartButton" onClick={() => this.setState({ start: true })}>&#11044;</button>
 
                 {this.state.start && (
                     <VoiceRecognition
