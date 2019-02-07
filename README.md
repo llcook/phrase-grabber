@@ -1,4 +1,4 @@
-# Webspeech
+# Phrase Grabber
 
 A full-stack speech-to-text app for Chrome desktop.
 
