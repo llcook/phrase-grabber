@@ -4,6 +4,7 @@ html {
 }
 
 #root {
+    background-color: whitesmoke;
     width: 100%;
 }
 
@@ -29,6 +30,12 @@ a {
 
 #intro {
     background-color: white;
+    border-radius: 0px;
+    margin-top: 0;
+}
+
+#new-note {
+    color: black;
 }
 
 #navbar {
@@ -54,9 +61,9 @@ a {
 
 @keyframes scrollUp {
     from {
-      transform: translateY(0);
+      transform: translateY(-83.33333%);
     }
     to {
-      transform: translateY(-83.33333%);
+      transform: translateY(0);
     }
   }

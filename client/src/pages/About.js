@@ -1,13 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function About() {
     return (
         <>
-            <h3>Technology</h3>
-            <p>This app is powered by the <Link to={"https://w3c.github.io/speech-api/"}>Web Speech API.</Link></p>
+            <h3>Happy to see you here</h3>
+           
+            <p>This app is powered by the <a target="blank" href={"https://w3c.github.io/speech-api/"}>Web Speech API</a> and a number of <a target="blank" href={"https://github.com/llcook/web-speech/blob/master/client/package.json"}>front-end</a> and <a target="blank" href={"https://github.com/llcook/web-speech/blob/master/package.json"}>back-end</a> technologies.
+            </p>
 
-            <p>&copy; 2019 <Link to={"https://llcook.us"}>LLC</Link></p>
+            <p>2019 <a href="https://github.com/llcook/web-speech">llcook</a></p>
 
         </>
     )

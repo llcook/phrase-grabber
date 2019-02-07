@@ -5,7 +5,6 @@ import {
     NavbarToggler,
     NavbarBrand,
     Nav,
-    NavItem,
     NavLink,
     UncontrolledDropdown,
     DropdownToggle,
@@ -36,17 +35,13 @@ export default class Navigation extends React.Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
 
-                            <NavItem>
-                                <NavLink href="/notes/">About</NavLink>
-                            </NavItem>
-
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>
                                     Coming soon
                                 </DropdownToggle>
                                 <DropdownMenu right>
-                                    <DropdownItem disabled>
-                                        Live translation
+                                    <DropdownItem>
+                                    <NavLink href="/notes/">Live translation</NavLink>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
