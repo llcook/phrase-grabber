@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 import Date from "../components/Date";
+import { Link } from "react-router-dom";
 
 class StaticList extends Component {
     state = {
@@ -29,7 +30,8 @@ class StaticList extends Component {
                         <ListGroup id="all-notes" variant="flush">
                             {this.state.notes.map(note => (
                                 <ListGroupItem key={note._id}>
-                                        {note.note}
+                                    <Link to={"/notes/" + note._id}>
+                                        {note.note}</Link>
                                         <Date>{note.date}</Date>
                                 </ListGroupItem>
                             ))}
