@@ -23,11 +23,6 @@ li {
     list-style-type: none;
 }
 
-a {
-    color: black;
-    text-decoration: none;
-}
-
 #intro {
     background-color: white;
     border-radius: 0px;
