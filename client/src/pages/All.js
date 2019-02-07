@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
 import About from "./About";
 
@@ -35,9 +34,7 @@ class All extends Component {
                         <ListGroup id="all-notes" variant="flush">
                             {this.state.notes.map(note => (
                                 <ListGroupItem key={note._id}>
-                                    <Link to={"/notes/" + note._id}>
                                         {note.note}
-                                    </Link>
                                 </ListGroupItem>
                             ))}
                         </ListGroup>

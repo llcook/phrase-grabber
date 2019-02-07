@@ -59,6 +59,11 @@ a {
     animation: scrollUp 30s 0.16s infinite forwards;
 }
 
+#all-notes li:hover {
+    transition-delay: 1s; /* delays for 1 second */
+    -webkit-transition-delay: 1s; /* for Safari & Chrome */
+}
+
 @keyframes scrollUp {
     from {
       transform: translateY(-83.33333%);

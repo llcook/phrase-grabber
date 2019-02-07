@@ -48,9 +48,9 @@ class Notes extends Component {
 
                 <Jumbotron id="intro">
                     <h1 className="display-3">Welcome</h1>
-                    <p className="lead">This user-activated speech-to-text app listens for human speech, translates it to text and stores it in a database.</p>
+                    <p className="lead">This user-activated Chrome desktop app listens for speech, translates it to text and stores it in a database.</p>
                     <hr className="my-2" />
-                    <p>Click to start the translation. When you stop talking, the machine returns a result below.</p>
+                    <p>Click to start the translation. The machine stops capturing data at pauses in speech. Result below.</p>
                     <p className="lead">
                         <Button id="start-button" color="danger" onClick={() => this.setState({ start: true })}>Say something</Button>
                     </p>

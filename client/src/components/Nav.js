@@ -41,7 +41,7 @@ export default class Navigation extends React.Component {
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
-                                    <NavLink href="/notes/">Live translation</NavLink>
+                                    <NavLink href="/notes/">Live transcription</NavLink>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
