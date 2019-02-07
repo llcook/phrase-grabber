@@ -44,7 +44,7 @@ export default class Navigation extends React.Component {
                                     </DropdownItem>
 
                                     <DropdownItem>
-                                    <NavLink href="/api/notes/">Data</NavLink>
+                                    <NavLink target="blank" href="/api/notes/">Data</NavLink>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
