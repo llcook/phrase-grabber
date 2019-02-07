@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
     Collapse,
     Navbar,
@@ -10,7 +10,7 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem
-} from 'reactstrap';
+} from "reactstrap";
 
 export default class Navigation extends React.Component {
     constructor(props) {
@@ -37,11 +37,14 @@ export default class Navigation extends React.Component {
 
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>
-                                    Coming soon
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
-                                    <NavLink href="/notes/">Live transcription</NavLink>
+                                    <NavLink href="/notes/">About</NavLink>
+                                    </DropdownItem>
+
+                                    <DropdownItem>
+                                    <NavLink href="/api/notes/">Data</NavLink>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>

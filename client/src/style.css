@@ -55,13 +55,8 @@ a {
     font-size: 12px;
 }
 
-#all-notes {
+#scroll-notes {
     animation: scrollUp 30s 0.16s infinite forwards;
-}
-
-#all-notes li:hover {
-    transition-delay: 1s; /* delays for 1 second */
-    -webkit-transition-delay: 1s; /* for Safari & Chrome */
 }
 
 @keyframes scrollUp {

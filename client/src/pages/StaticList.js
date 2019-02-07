@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Row, Col, ListGroup, ListGroupItem } from "reactstrap";
-import About from "./About";
+import Date from "../components/Date";
 
-class All extends Component {
+class StaticList extends Component {
     state = {
         notes: []
     }
@@ -25,16 +25,12 @@ class All extends Component {
         return (
             <>
                 <Row>
-                    <Col id="about">
-                        <About />
-                    </Col>
-                </Row>
-                <Row>
                     <Col>
-                        <ListGroup id="scroll-notes" variant="flush">
+                        <ListGroup id="all-notes" variant="flush">
                             {this.state.notes.map(note => (
                                 <ListGroupItem key={note._id}>
                                         {note.note}
+                                        <Date>{note.date}</Date>
                                 </ListGroupItem>
                             ))}
                         </ListGroup>
@@ -45,4 +41,4 @@ class All extends Component {
     }
 }
 
-export default All;
+export default StaticList;
