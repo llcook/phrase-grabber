@@ -13,7 +13,7 @@ function About() {
             
             <p>Future updates will demonstrate live transcription.</p>
 
-            <p>2019 <a href="https://github.com/llcook/web-speech">llcook</a></p>
+            <p>2019 <a href="https://github.com/llcook/phrase-grabber">llcook</a></p>
 
         </>
     )
