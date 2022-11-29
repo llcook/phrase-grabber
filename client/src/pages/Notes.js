@@ -50,7 +50,7 @@ class Notes extends Component {
                     <h1 className="display-3">Welcome</h1>
                     <p className="lead">This user-activated app listens for speech, translates it to text and stores it in a database.</p>
                     <hr className="my-2" />
-                    <p>Click to start the translation. When the user allows microphone access (desktop or mobile), the machine captures data until a pause in speech. It produces the result below.</p>
+                    <p>Click to start the translation. When the user allows microphone access, the machine captures data until a pause in speech. It produces the result below.</p>
                     <p className="lead">
                         <Button id="start-button" color="danger" onClick={() => this.setState({ start: true })}>Say something</Button>
                     </p>
