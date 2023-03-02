@@ -1,6 +1,6 @@
 # Phrase Grabber
 
-A full-stack speech-to-text app for Chrome desktop.
+A full-stack speech-to-text app.
 
 Contribute a phrase of your own [here](https://fast-gorge-52800.herokuapp.com/).
 
